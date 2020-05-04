@@ -1,0 +1,12 @@
+header {
+  border: 1px solid red;
+
+  h1 {
+    text-align: center;
+    color: red;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
