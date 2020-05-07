@@ -1,7 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  padding: 1em;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+
+  &:hover {
+    opacity: .8;
+  }
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
+
+  main {
+    text-align: center;
+  }
 }
 
 header {
@@ -9,7 +37,7 @@ header {
 
   h1 {
     text-align: center;
-    color: red;
+    margin: 0;
 
     &:hover {
       transform: scale(1.2);
