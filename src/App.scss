@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
+@mixin main-bg {
+  background: #FF512F;
+  background: -webkit-linear-gradient(to right, #F09819, #FF512F);
+  background: linear-gradient(to right, #F09819, #FF512F);
+}
+
 *,
 *::after,
 *::before {
@@ -10,7 +16,6 @@
 
 img {
   max-width: 100%;
-  padding: 1em;
 }
 
 button {
@@ -26,21 +31,32 @@ button {
 
 body {
   font-family: 'Montserrat', sans-serif;
+  @include main-bg();
 
   main {
     text-align: center;
   }
 }
 
+
 header {
-  border: 1px solid red;
+  padding: 1em;
 
   h1 {
     text-align: center;
-    margin: 0;
+    margin: .2em 0;
 
     &:hover {
       transform: scale(1.2);
     }
   }
+}
+
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
 }

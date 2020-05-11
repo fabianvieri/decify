@@ -1,31 +1,70 @@
 import React from 'react';
 import './App.scss';
 import logo from './logo.png';
+import Searchbar from './components/Searchbar/Searchbar';
+import Definition from './components/Definition/Definition';
+import Footer from './components/Footer/Footer';
+import Particles from 'react-particles-js';
+import Owlbot from 'owlbot-js';
 
-function App() {
-  return (
-    <main className="ba mw8 w-100 ml-auto mr-auto">
-      <header className="">
-        <h1 className="f1">Decify</h1>
-        <img src={logo} alt="logo" className="w4" />
-        <p className="f4">Et ligula ullamcorper malesuada proin
-        Phasellus egestas tellus rutrum tellus
-        Sit amet cursus sit amet
-        Lorem mollis aliquam ut porttitor
-        Elit scelerisque mauris pellentesque pulvinar. </p>
-      </header>
-      <div className="pa4 ba">
-        <input type="text" className="pa1 w-80" />
-        <button type="button" className="pa2 w-20">find</button>
-      </div>
-      <div className="pa6 bg-black-80">
+const particleOptions = {
+  particles: {
+    number: {
+      value: 70,
+      density: {
+        enable: true,
+        value_area: 800
+      }
+    }
+  }
+}
 
-      </div>
-      <footer className="pa4 bg-dark-red">
+class App extends React.Component {
 
-      </footer>
-    </main>
-  );
+  constructor() {
+    super();
+    this.state = {
+      word: '',
+      result: {}
+    }
+    this.client = Owlbot('6ece4df46b4e016cf8fb8e08758d7db27ee10f11');
+  }
+
+  componentDidMount() {
+    this.client.define('owl').then(data => {
+      this.setState({ result: data });
+    });
+  }
+
+  onSearch = () => {
+    const { word } = this.state.word;
+    if (word) {
+      this.client.define(word).then(data => {
+        this.setState({ result: data });
+      });
+    }
+  }
+
+  onChangeInput = event => {
+    this.setState({ word: event.target.value });
+  }
+
+  render() {
+    console.log(this.state.result);
+    return (
+      <main className="mw8 w-100 ml-auto mr-auto">
+        <Particles className="particles" params={particleOptions} />
+        <header className="white br2">
+          <h1 className="f1">Decify</h1>
+          <img src={logo} alt="logo" className="w4" />
+          <h2>find any english word you like, and get detailed information about it</h2>
+        </header>
+        <Searchbar onSearch={this.onSearch} onChange={this.onChangeInput} />
+        <Definition result={this.state.result} />
+        <Footer />
+      </main>
+    );
+  }
 }
 
 export default App;
