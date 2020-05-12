@@ -1,22 +1,27 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
-const SubDefinition = () => {
-    //const { type, definition } = def;
+const SubDefinition = ({ def }) => {
+    const { type, definition, example, image_url, emoji } = def;
     return (
-        <div className="mt3 flex tl justify-around">
-            <div>
-                <h4>VERB</h4>
-                <p className="f5">"mark with a badge or other distinguishing emblem."</p>
-                <p className="f5 mt2">example : <br />the badge of the Cheshire Regiment</p>
+        <Fragment>
+            <div className={`mt3 flex ${image_url ? 'tl' : 'tc'} justify-center items-center`}>
+                <div className="w-70">
+                    <h3 className="fw7">{`${type} ${emoji || ""}`}</h3>
+                    <p className="f5"><i>{`'${definition}'`}</i></p>
+                    <p className="f5 mt2 white-70" dangerouslySetInnerHTML={{ __html: example || "" }}></p>
+                </div>
+                {
+                    image_url && <img
+                        width="100"
+                        height="100"
+                        alt="word"
+                        className="br3 ml1"
+                        src={image_url}
+                    />
+                }
             </div>
-            <img
-                width="150"
-                height="150"
-                alt="word"
-                className="ba br3"
-                src="https://media.owlbot.info/dictionary/images/uuy.jpg.400x400_q85_box-0,0,225,225_crop_detail.jpg"
-            />
-        </div>
+            <hr className="bg-white dim mt1" />
+        </Fragment>
     );
 };
 

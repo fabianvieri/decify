@@ -20,7 +20,6 @@ const particleOptions = {
 }
 
 class App extends React.Component {
-
   constructor() {
     super();
     this.state = {
@@ -36,11 +35,17 @@ class App extends React.Component {
     });
   }
 
+  componentDidCatch() {
+    console.log("error");
+  }
+
   onSearch = () => {
-    const { word } = this.state.word;
+    const { word } = this.state;
     if (word) {
       this.client.define(word).then(data => {
         this.setState({ result: data });
+      }).catch(() => {
+        this.setState({ result: "error" });
       });
     }
   }
@@ -50,7 +55,7 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.result);
+    const { result } = this.state;
     return (
       <main className="mw8 w-100 ml-auto mr-auto">
         <Particles className="particles" params={particleOptions} />
@@ -60,7 +65,7 @@ class App extends React.Component {
           <h2>find any english word you like, and get detailed information about it</h2>
         </header>
         <Searchbar onSearch={this.onSearch} onChange={this.onChangeInput} />
-        <Definition result={this.state.result} />
+        <Definition result={result} />
         <Footer />
       </main>
     );
