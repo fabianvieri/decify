@@ -1,0 +1,23 @@
+.sub__def {
+    display: flex;
+
+    @media (max-width:600px) {
+        flex-direction: column;
+    }
+
+    .sub__detail {
+        @media (max-width:600px) {
+            width: 100%;
+            text-align: center;
+            padding: 0 1em .5em;
+        }
+    }
+
+    .sub__img {
+        width: 100px;
+
+        @media (max-width:600px) {
+            width: 30%;
+        }
+    }
+}
