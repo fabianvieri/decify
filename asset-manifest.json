@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/decify/static/css/main.650183ff.chunk.css",
+    "main.js": "/decify/static/js/main.f0c53576.chunk.js",
+    "main.js.map": "/decify/static/js/main.f0c53576.chunk.js.map",
+    "runtime-main.js": "/decify/static/js/runtime-main.2427ca8d.js",
+    "runtime-main.js.map": "/decify/static/js/runtime-main.2427ca8d.js.map",
+    "static/css/2.f28fb150.chunk.css": "/decify/static/css/2.f28fb150.chunk.css",
+    "static/js/2.80ca2376.chunk.js": "/decify/static/js/2.80ca2376.chunk.js",
+    "static/js/2.80ca2376.chunk.js.map": "/decify/static/js/2.80ca2376.chunk.js.map",
+    "index.html": "/decify/index.html",
+    "precache-manifest.da1ee759cc58c5a32ce156e7a5216dd5.js": "/decify/precache-manifest.da1ee759cc58c5a32ce156e7a5216dd5.js",
+    "service-worker.js": "/decify/service-worker.js",
+    "static/css/2.f28fb150.chunk.css.map": "/decify/static/css/2.f28fb150.chunk.css.map",
+    "static/css/main.650183ff.chunk.css.map": "/decify/static/css/main.650183ff.chunk.css.map",
+    "static/js/2.80ca2376.chunk.js.LICENSE.txt": "/decify/static/js/2.80ca2376.chunk.js.LICENSE.txt",
+    "static/media/logo.png": "/decify/static/media/logo.57439860.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2427ca8d.js",
+    "static/css/2.f28fb150.chunk.css",
+    "static/js/2.80ca2376.chunk.js",
+    "static/css/main.650183ff.chunk.css",
+    "static/js/main.f0c53576.chunk.js"
+  ]
+}
